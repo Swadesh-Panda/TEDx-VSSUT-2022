@@ -51,6 +51,31 @@
             clear: both;
         }
     </style>
+    <style>
+        .home {
+            height: 100vh;
+            background: url(assets/images/nvug.png) no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #HomeMobile {
+            display: none;
+        }
+        
+        @media screen and (max-width: 600px) {
+            #HomeDesktop {
+                display: none;
+            }
+            #HomeMobile {
+                display: flex;
+            }
+        }
+    </style>
 </head>
 
 <body style="background: #121212; zoom: 1; transform: none;">
@@ -95,7 +120,7 @@
                             <li><a href="#Sponsors">Sponsors</a></li>
                             <li><a href="#Speakers">Speakers</a></li>
                             <li><a href="#Gallery">Gallery</a></li>
-                            <li><a href="team.html">Team</a></li>
+                            <li><a href="./team/">Team</a></li>
                             <li><a href="#Contact">Contact Us</a></li>
                         </ul>
                     </div>
@@ -123,7 +148,7 @@
                                     <li><a href="#Sponsors">Sponsors</a></li>
                                     <li><a href="#Speakers">Speakers</a></li>
                                     <li><a href="#Gallery">Gallery</a></li>
-                                    <li><a href="team.html">Team</a></li>
+                                    <li><a href="./team/">Team</a></li>
                                     <li><a href="#Contact">Contact Us</a></li>
                                 </ul>
                                 <a href="javascript:void" class="reg-head d-none d-xl-block">Coming Soon</a>
@@ -137,8 +162,19 @@
     <!-- header section ending here -->
 
     <!-- banner section start here -->
-    <section id="Home" class="m-0 banner-section banner-df" style="background: url(./assets/images/Asset\ 5c1.png) no-repeat; background-size:cover; background-attachment: fixed; background-position: center; display: flex; justify-content: center; align-items: center;">
-        <img src="assets/images/logo-1l-w.svg" width="380px" alt="" style="margin: 0 20px;">
+    <section id="HomeDesktop" class="m-0 banner-section banner-df home">
+        <!-- <img src="assets/images/logo-1l-w.svg" width="380px" alt="" style="margin: 0 20px;"> -->
+    </section>
+    <section id="HomeMobile" class="home" style="background: url(./assets/images/phone_bg-01.png);background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    justify-content: center;
+    align-items: center;">
+        <div class="d-flex flex-column align-items-center justify-content-center">
+            <img src="./assets/images/logo-tedxvssut.svg" alt="TEDxVSSUT" width="300px" style="filter: drop-shadow(4px 2px #000000);">
+            <h3 style="font-size: 16px;filter: drop-shadow(3px 2px #000000); letter-spacing: 2px; text-align: center;">UNPARALLELED AMIDST UNCERTAINTY</h3>
+        </div>
+
     </section>
     <!-- banner section ending here -->
 
@@ -656,6 +692,15 @@
         <div class="section-wrapper">
             <div class="grid  wow fadeInUp animated" data-wow-duration="1s" data-wow-delay=".3s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.3s; position: relative; height: 764.589px;">
 
+                <div class="element-item transition" data-category="transition" style="position: absolute; left: 0px; top: 0px;">
+                    <div class="element-item-inner">
+                        <a href="https://www.youtube.com/embed/MkmfF2INtxg" data-rel="lightcase" class="cata-icon">
+                            <i class="fas fa-play"></i>
+                        </a>
+                        <a href="./assets/tedx-gallery/tedxvssut2022.jpg" data-rel="lightcase"><img src="./assets/tedx-gallery/tedxvssut2022.jpg" alt="gallery"></a>
+                    </div>
+                </div>
+
                 <div class="element-item  metal" data-category="post-transition" style="position: absolute; left: 379.8px; top: 0px;">
                     <div class="element-item-inner">
                         <a href="./assets/tedx-gallery/1.jpg" data-rel="lightcase" class="cata-icon">
@@ -770,8 +815,7 @@
                         <h5>Event Location:</h5>
                         <p>Biju Pattnaik E-Learning Center, VSSUT, Burla<br>PIN-768018</p>
                         <h5>Contact No:</h5>
-                        <span>(+880) 123 456 7890</span>
-                        <span>(+880) 987 654 3210</span>
+                        <span>(+91) 81440 64955</span>
                     </div>
                 </div>
                 <div class="col-lg-8">
@@ -805,12 +849,15 @@
     <!-- footer section start here -->
     <section class="footer-section">
         <div class="top"><a href="#Home" class="scrollToTop"><i class="fas fa-angle-up"></i></a></div>
-        <div class="footer-bottom" style="background-color: black;">
+        <div class="footer-bottom px-3" style="background-color: black;">
             <div class="container container-1310">
                 <div class="row justify-content-lg-between justify-content-center align-items-center">
                     <!-- <div class="copyright wow fadeInLeft animated text-md-left" data-wow-duration="1s" data-wow-delay=".2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s;"> -->
-                    <p style="color: white;">This independent <span style="color: #e62b1e;">TEDx</span> event is operated under license from <span style="color: #e62b1e;">TED</span>.</p>
-                    <p style="color: white;"><span style="color: #e62b1e;">TEDxVSSUT</span> is hosted by <span><a style="color: #e62b1e; font-weight: 400;" href="https://ecellvssut.tech/">E-Cell VSSUT</a></span>.</p>
+                    <div class="d-flex flex-column">
+                        <p style="color: white;">This independent <span style="color: #e62b1e;">TEDx</span> event is operated under license from <span style="color: #e62b1e;">TED</span>.</p>
+                        <p style="color: white;"><span style="color: #e62b1e;">TEDxVSSUT</span> is hosted by <span><a style="color: #e62b1e; font-weight: 400;" href="https://ecellvssut.tech/">E-Cell VSSUT</a></span>.</p>
+                    </div>
+
 
                     <div class="footer-social">
                         <ul class="social-media d-flex flex-wrap mb-0">
