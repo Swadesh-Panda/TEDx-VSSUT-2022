@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang=eng>
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <title>Ticket Booking</title>
+    </head>
+
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+        .form
+        {
+            display: flex;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-image: url("./assets/images/ticket/tedx.png");
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+        
+        input[type="text"],input[type="number"],input[type="tel"],input[type="email"]
+        {
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 8px;
+            margin-top: 6px;
+        }
+
+        select{
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 8px;
+            margin-top: 6px;
+        }
+
+        .t-form
+        {
+            width: 100%;
+            max-width:500px;
+            padding:30px 25px;
+            border-style: inset;
+            color:azure;
+            font-size: 20px;
+            background: rgba( 255, 255, 255, 0.25 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 3px );
+            -webkit-backdrop-filter: blur( 3px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+        }
+        button
+        {
+            background-color:#e62b1e;
+            border: none;
+            padding: 15px 32px;
+            color: white;
+            font-weight: 300;
+            border: 2px solid white;
+            border-radius: 8px;
+            font-size: 15px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+
+        .radioin
+        {
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+        ::placeholder
+        {
+            color:black;
+            font-size: 15px;
+        }
+    </style>
+    </head>
+
+    <body>
+    <div class="form">
+        <div class="t-form">
+            <div><label for="name">Name:</label>
+            <input type="text" id="name" required placeholder="Name" style="width:100%"><br><br></div>
+            <div><label for="regd-no">Registration Number:</label><br>
+            <input type="number" id="regd-no" style="width:100%" required placeholder="Registration Number" name="Registration No"><br><br></div>
+            <div><label for="email">Enter your email:</label><br>
+            <input type="email" id="email" name="email" style="width:100%" required placeholder="Email-id"><br></div>
+            <br><div><p>College Name</p>
+            <div class="radioin">
+            <input type="radio" id="vssut" name="College" value="VSSUT">
+            <label for="vssut" style="margin-top: 8px">VSSUT</label><br>
+            <input type="radio" id="Other" name="College" value="Other">
+            <label for="Other" style="margin-top: 8px">Other</label><br><br></div>
+            </div>
+            <div><label for="clg">If Other,<br> Enter your College Name:</label><br>
+            <input type="text" id="clg" name="College Name" style="width:100%" placeholder="College Name"><br><br></div>
+
+            <div><label for="tsize">T-shirt Size:</label><br>
+            <select id="tsize" name="T-shirt Size" size="1" style="width:100%" required>
+            <option value="Small">S</option>
+            <option value="Medium">M</option>
+            <option value="Large">L</option>
+            <option value="Extra-Large">XL</option>
+            </select></div>
+            
+            <div><br><label for="phone">Phone Number:</label><br>
+            <input type="tel" id="phone" style="width:100%" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="XXX-XXX-XXXX"><br></div>
+            <div><br><button type="button">Pay & Register! </button></div>
+        </div>
+        </div>
+    </body>
+</html>
