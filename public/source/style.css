@@ -11598,7 +11598,7 @@ html[lang=th] * {
 --------------------------------------------------------------*/
 
 label {
-    color: #3f485d;
+    color: #fff;
     display: block;
     font-weight: 800;
     margin-bottom: 0.5em;
@@ -11653,7 +11653,7 @@ input[type=datetime]:focus,
 input[type=datetime-local]:focus,
 input[type=color]:focus,
 textarea:focus {
-    color: #222;
+    color: #fff;
     border-color: #3f485d;
 }
 
