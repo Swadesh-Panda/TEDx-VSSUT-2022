@@ -182,17 +182,9 @@
         const back = document.querySelector('.back-button')
 
         back.addEventListener('click', (e) => {
-                e.preventDefault();
-                history.back();
-            })
-            //const uname = document.querySelector('#uname')
-            //const upaymentid = document.querySelector('#upaymentid')
-            //const user = {
-            // name: 'Ravindra',
-            //payment_id: 1213
-            //}
-            //uname.innerHTML += user.name
-            //upaymentid.innerHTML += user.payment_id
+            e.preventDefault();
+            history.back();
+        })
         const form = document.querySelector('form')
         const error = document.querySelector('#error')
         const payment_status = document.querySelector('#payment-status')
@@ -204,6 +196,10 @@
         const icon_fail = document.querySelector('#icon-fail')
 
 
+        const query = window.location.search
+        const q_obj = new URLSearchParams(query)
+        console.log(q_obj.get('user'))
+
         const loading = `<div class="spinner-border text-white" role="status">
             <span class="sr-only">Loading...</span>
           </div>`
@@ -213,6 +209,28 @@
             const response = await fetch(url + payment_id)
             return response.json()
         }
+
+        getUserStatus('https://api-tedxvssut.herokuapp.com/users/status/', q_obj.get('user'))
+            .then(data => {
+                console.log(data)
+                checkbtn.innerHTML = notLoading
+                if ('error' in data) {
+                    error.innerHTML = data.message
+                    error.classList.remove('d-none')
+                } else {
+                    uname.innerHTML = data.user.first_name + data.user.last_name
+                    upaymentid.innerHTML = data.user.payment_id
+                    if (data.user.is_registered) {
+                        icon_paid.classList.remove('d-none')
+                        icon_fail.classList.add('d-none')
+                    } else {
+                        icon_paid.classList.add('d-none')
+                        icon_fail.classList.remove('d-none')
+                    }
+                    payment_status.classList.remove('d-none')
+                    error.classList.add('d-none')
+                }
+            })
 
         form.addEventListener('submit', (e) => {
             checkbtn.innerHTML = loading
