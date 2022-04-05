@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang=eng>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../source/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Ticket Booking</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    nav {
+        position: sticky;
+        top: 0;
+        background: #000;
+        padding: 20px 30px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #607d8b;
+    }
+    
+    .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .fa-angle-left::before {
+        color: #fff;
+        font-size: 32px;
+    }
+    
+    .form {
+        display: flex;
+        min-height: 100vh;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        /* background-image: url("./assets/images/ticket/tedx.png"); */
+        background: #121212;
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 20px;
+    }
+    
+    input[type="text"],
+    input[type="number"],
+    input[type="tel"],
+    input[type="email"] {
+        padding: 16px 20px;
+        box-sizing: border-box;
+        border-radius: 8px;
+        margin-top: 6px;
+        background: #000;
+        border: none;
+        color: #fff;
+    }
+    
+    select {
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 8px;
+        margin-top: 6px;
+    }
+    
+    .t-form {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 500px;
+        padding: 30px 25px;
+        margin: 30px auto;
+        border-style: inset;
+        color: azure;
+        font-size: 1em;
+        /* background: rgba( 255, 255, 255, 0.25); */
+        /*background: #000;
+        */
+        /*box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37);
+        backdrop-filter: blur( 3px);
+        -webkit-backdrop-filter: blur( 3px);*/
+        border-radius: 10px;
+        /*border: 1px solid rgba( 255, 255, 255, 0.18);
+        border: 1px solid#607d8b;*/
+        border: none;
+    }
+    
+    .t-form>div {
+        margin: 10px 0 30px;
+    }
+    
+    .t-form label {
+        font-size: 1em;
+    }
+    
+    button {
+        background-color: #e62b1e;
+        border: none;
+        padding: 15px 32px;
+        margin: 0 auto;
+        color: white;
+        font-weight: 300;
+        border: 2px solid white;
+        border-radius: 8px;
+        font-size: 15px;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    
+    .radioin {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+    
+    .form-check-input:checked {
+        background: #e62b1e;
+        border-color: #e62b1e;
+    }
+    
+    .fieldset {
+        position: relative;
+        width: 400px;
+        height: 40px;
+        border-radius: 8px;
+    }
+    
+    .legend {
+        position: absolute;
+        top: 50%;
+        left: 12px;
+        font-size: 0.8em;
+        padding: 0 8px;
+        background: #000;
+        transform: translateY(-50%);
+        transition: all 300ms;
+        pointer-events: none;
+    }
+    
+    .legend-active {
+        top: -10px;
+        transform: none;
+    }
+    
+    .fieldset input {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        margin: 0;
+        background: #000;
+        border: none;
+        color: #fff;
+    }
+    
+    .fieldset input:focus {
+        outline: none;
+    }
+    
+    .form-select {
+        padding: 16px 20px;
+        background: #000;
+        border: none;
+        color: #fff;
+    }
+    
+    .payment {
+        background: #e62b1e;
+        width: 100%;
+        padding: 16px 20px;
+    }
+</style>
+</head>
+
+<body>
+    <nav>
+        <a class="back-button">
+            <i class="fa-solid fa-angle-left"></i>
+        </a>
+        <a href="https://tedxvssut.com" target="_blank" class="logo">
+            <img src="../../assets/images/logo/logo-1l-w.svg" alt="logo" width="180">
+        </a>
+
+    </nav>
+    <div class="form">
+        <form class="t-form">
+            <div>
+                <!-- <label for="name">Name:</label> -->
+                <input type="text" id="first_name" name="first_name" required placeholder="First Name" style="width:100%">
+            </div>
+            <div>
+                <!-- <label for="name">Name:</label> -->
+                <input type="text" id="last_name" name="last_name" required placeholder="Last Name" style="width:100%">
+            </div>
+            <div>
+                <!-- <label for="phone ">Phone Number:</label> -->
+                <input type="tel" id="phone_no" style="width:100%" name="phone_no" pattern="[0-9]{10}" placeholder="Phone Number" required>
+            </div>
+            <div>
+                <!-- <label for="email">Enter your email:</label> -->
+                <input type="email" id="email" name="email" style="width:100%" required placeholder="Email-id">
+            </div>
+
+
+            <div>
+                <label>Institute</label>
+                <div class="radioin ">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="clg" id="clg1" value="1">
+                        <label class="form-check-label" for="institute">
+                          Veer Surendra Sai University of Technology, Burla
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="clg" id="clg2" value="2">
+                        <label class=" form-check-label" for="institute">
+                          Other
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <!-- <label for="clg ">If Other, Enter your College Name:</label> -->
+                <input type="text" id="institute" name="institute" style="width:100%" placeholder="If other, Enter your Institute Name" required>
+            </div>
+            <div>
+                <!-- <label for="regd-no ">Registration Number:</label> -->
+                <input type="number" id="registration_no" style="width:100%" required placeholder="Registration Number" name="registration_no">
+            </div>
+            <div>
+                <!-- <label for="tsize ">T-shirt Size:</label> -->
+                <select class="form-select form-select-sm" aria-label="Select T-Shirt size" name="t_shirt_size">
+                    <option selected>Select T-Shirt size</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+            </div>
+            <div class="d-flex">
+                <button id="regbtn" type="submit">Pay & Register! </button>
+            </div>
+        </form>
+    </div>
+    <div id="user-success" class="form d-none">
+        <div class="t-form bg-black text-center">
+            <div class="ticket">
+                <p>Your Ticket ID is</p>
+                <strong id="ticket_id" class="mb-3"></strong>
+            </div>
+            <p>The payment link and Ticket ID has also been mailed to you</p>
+            <a id="paybtn">
+                <button class="btn d-flex align-items-center justify-content-center payment p-4">
+                    <i class="fa-solid fa-lock"></i>
+                    <p class="text-white m-0 mx-2">Pay</p>
+                </button>
+            </a>
+        </div>
+    </div>
+    <!-- footer section start here -->
+    <section class="footer-section ">
+        <div class="footer-bottom px-3 " style="background-color: black; ">
+            <div class="container container-1310 ">
+                <div class="row justify-content-lg-between justify-content-center align-items-center ">
+                    <!-- <div class="copyright wow fadeInLeft animated text-md-left " data-wow-duration="1s " data-wow-delay=".2s " style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; "> -->
+                    <div class="col-12 col-md-8 flex flex-column ">
+                        <p style="color: white; ">This independent <span style="color: #e62b1e; ">TEDx</span> event is operated under license from <span style="color: #e62b1e; ">TED</span>.</p>
+                        <p style="color: white; "><span style="color: #e62b1e; ">TEDxVSSUT</span> is hosted by <span><a style="color: #e62b1e; font-weight: 400; " href="https://ecellvssut.tech/ ">E-Cell VSSUT</a></span>.</p>
+                    </div>
+
+
+                    <div class="col-12 col-md-4 footer-social ">
+                        <ul class="social-media d-flex flex-wrap mb-0 p-0 justify-content-center justify-content-md-end ">
+                            <li class="wow fadeInRight animated " data-wow-duration="1s " data-wow-delay=".5s " style="visibility: visible; animation-duration: 1s; animation-delay: 0.5s; "><a href="https://www.facebook.com/tedxvssut/ "><i class="fa-brands
+                            fa-facebook-f "></i></a></li>
+                            <li class="wow fadeInRight animated " data-wow-duration="1s " data-wow-delay=".4s " style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s; "><a href="https://www.linkedin.com/company/tedxvssut/?originalSubdomain=in
+                            "><i class="fab fa-linkedin-in "></i></a></li>
+                            <li class="wow fadeInRight animated " data-wow-duration="1s " data-wow-delay=".3s " style="visibility: visible; animation-duration: 1s; animation-delay: 0.3s; "><a href="https://www.instagram.com/tedxvssut/ "><i class="fab
+                            fa-instagram "></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="DangerToast" class="toast bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body text-white" id="danger-toast">
+                Hello, world! This is a toast message.
+            </div>
+        </div>
+    </div>
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="SuccessToast" class="toast bg-success" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body text-white" id="success-toast">
+                Hello, world! This is a toast message.
+            </div>
+        </div>
+    </div>
+    <!-- footer section ending here -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p " crossorigin="anonymous "></script>
+
+    <script>
+        const back = document.querySelector('.back-button')
+
+        back.addEventListener('click', (e) => {
+            e.preventDefault();
+            history.back();
+        })
+        const form = document.querySelector('form')
+        const user_success = document.querySelector('#user-success')
+        const vssut = document.querySelector('#clg1')
+        const otherclg = document.querySelector('#clg2')
+        var dangerToast = document.getElementById('DangerToast')
+        var successToast = document.getElementById('SuccessToast')
+        const toastSBody = document.querySelector('#success-toast')
+        const toastDBody = document.querySelector('#danger-toast')
+        var toastD = new bootstrap.Toast(dangerToast)
+        var toastS = new bootstrap.Toast(successToast)
+        const ticket_id = document.querySelector('#ticket_id')
+        const paybtn = document.querySelector('#paybtn')
+        const regbtn = document.querySelector('#regbtn')
+
+        const loading = `<div class="spinner-border text-white" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>`
+        const notLoading = `Pay & Register!`
+
+        const institute_field = document.querySelector('#institute')
+        const registration_no_field = document.querySelector('#registration_no')
+        institute_field.disabled = true;
+        registration_no_field.disabled = false;
+        institute_field.value = 'Veer Surendra Sai University of Technology'
+        vssut.addEventListener('change', () => {
+            if (vssut.checked) {
+                institute_field.value = 'Veer Surendra Sai University of Technology';
+                institute_field.disabled = true;
+                registration_no_field.disabled = false;
+            } else {
+                institute_field.disabled = false;
+                registration_no_field.disabled = true;
+            }
+        })
+
+        otherclg.addEventListener('change', () => {
+            if (otherclg.checked) {
+                institute_field.value = '';
+                institute_field.disabled = false;
+                registration_no_field.disabled = true;
+                registration_no_field.value = '';
+            } else {
+                institute_field.disabled = true;
+                registration_no_field.disabled = false;
+            }
+        })
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            regbtn.innerHTML = loading
+            const user = {
+                first_name: form.first_name.value,
+                last_name: form.last_name.value,
+                phone_no: form.phone_no.value,
+                email: form.email.value,
+                institute: form.institute.value,
+                t_shirt_size: form.t_shirt_size.value,
+            }
+            console.log(user)
+            async function post(url = 'https://api-tedxvssut.herokuapp.com/users', data) {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                return response.json()
+            }
+            post('https://api-tedxvssut.herokuapp.com/users', user)
+                .then(data => {
+                    console.log(data)
+                    regbtn.innerHTML = notLoading
+                    if ('error' in data) {
+                        toastDBody.innerHTML = data.message
+                        toastD.show()
+                    } else {
+                        paybtn.href = data.user.payment_link
+                        ticket_id.innerHTML = data.user.payment_reference_id
+                        form.classList.add('d-none')
+                        user_success.classList.remove('d-none')
+                    }
+                })
+        })
+    </script>
+
+</body>
+
+</html>
