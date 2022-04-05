@@ -121,6 +121,10 @@
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
     
+    button:hover {
+        background-color: #e62b1e90;
+    }
+    
     .radioin {
         display: flex;
         flex-direction: column;
@@ -245,8 +249,8 @@
             </div>
             <div>
                 <!-- <label for="tsize ">T-shirt Size:</label> -->
-                <select class="form-select form-select-sm" aria-label="Select T-Shirt size" name="t_shirt_size">
-                    <option selected>Select T-Shirt size</option>
+                <select class="form-select form-select-sm" aria-label="Select T-Shirt size" name="t_shirt_size" required>
+                    <option selected disabled>Select T-Shirt size</option>
                     <option value="S">S</option>
                     <option value="M">M</option>
                     <option value="L">L</option>
@@ -330,6 +334,7 @@
             history.back();
         })
         const form = document.querySelector('form')
+        const formdiv = document.querySelector('.form')
         const user_success = document.querySelector('#user-success')
         const vssut = document.querySelector('#clg1')
         const otherclg = document.querySelector('#clg2')
@@ -377,6 +382,14 @@
         })
         form.addEventListener('submit', (e) => {
             e.preventDefault();
+            if (form.institute && form.registration_no.value == null) {
+                alert('Please enter registration number')
+                return
+            }
+            if (form.t_shirt_size.value === 'Select T-Shirt size') {
+                alert('Please enter T-Shirt size')
+                return
+            }
             regbtn.innerHTML = loading
             const user = {
                 first_name: form.first_name.value,
@@ -407,7 +420,7 @@
                     } else {
                         paybtn.href = data.user.payment_link
                         ticket_id.innerHTML = data.user.payment_reference_id
-                        form.classList.add('d-none')
+                        formdiv.classList.add('d-none')
                         user_success.classList.remove('d-none')
                     }
                 })

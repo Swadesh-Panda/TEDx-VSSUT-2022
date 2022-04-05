@@ -224,6 +224,7 @@
                 if ('error' in data) {
                     error.innerHTML = data.message
                     error.classList.remove('d-none')
+                    spinner.classList.add('d-none')
                 } else {
                     uname.innerHTML += data.user.first_name + data.user.last_name
                     upaymentid.innerHTML += data.user.payment_id
