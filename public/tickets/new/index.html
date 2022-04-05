@@ -382,7 +382,7 @@
         })
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            if (form.institute && form.registration_no.value == null) {
+            if (form.institute === 'Veer Surendra Sai University of Technology' && form.registration_no.value == null) {
                 alert('Please enter registration number')
                 return
             }
@@ -397,6 +397,7 @@
                 phone_no: form.phone_no.value,
                 email: form.email.value,
                 institute: form.institute.value,
+                registration_no: form.registration_no.value,
                 t_shirt_size: form.t_shirt_size.value,
             }
             console.log(user)
