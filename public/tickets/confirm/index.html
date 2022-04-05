@@ -130,21 +130,26 @@
     </nav>
     <div class="content">
         <div class="main-content">
-            <h2>Ticket Status</h2>
-            <form class="payid-input card mb-3">
-                <input type="text" name="payid" id="payid" placeholder="Payment ID">
-                <button type="submit" class="button" id="checkbtn">Check</button>
-            </form>
+            <h2 class="my-3">Ticket Status</h2>
+            <div class="d-flex" id="payment-spinner">
+                <div class="spinner-border text-light" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <span class="text-light mx-3">Fetching payment status...</span>
+            </div>
+
             <div id="payment-status" class="d-none">
                 <div class="user card mb-3">
                     <p id="uname" class="m-0 text-white">Name: </p>
                     <p id="upaymentid" class="m-0">Payment ID: </p>
+                    <p id="uticketid" class="m-0">Ticket ID: </p>
                 </div>
                 <div class="payment card">
                     <p id="status" class="p-0 m-0">Payment</p>
                     <i class="fa-solid fa-circle-check d-none" id="icon-paid"></i>
                     <i class="fa-solid fa-circle-xmark d-none" id="icon-fail"></i>
                 </div>
+                <p class="text-light text-center my-3">Congratulations! you've booked your ticket.<br>Your ticket will be sent to you soon. Please be patient.</p>>
             </div>
             <div id="error" class="text-white text-center bg-danger rounded py-2 d-none"></div>
         </div>
@@ -191,9 +196,11 @@
         const checkbtn = document.querySelector('#checkbtn')
         const uname = document.querySelector('#uname')
         const upaymentid = document.querySelector('#upaymentid')
+        const uticketid = document.querySelector('#uticketid')
         const status = document.querySelector('#status')
         const icon_paid = document.querySelector('#icon-paid')
         const icon_fail = document.querySelector('#icon-fail')
+        const spinner = document.querySelector('#payment-spinner')
 
 
         const query = window.location.search
@@ -206,6 +213,7 @@
         const notLoading = `Check`
 
         async function getUserStatus(url, payment_id) {
+            spinner.classList.add('d-none')
             const response = await fetch(url + payment_id)
             return response.json()
         }
@@ -213,13 +221,13 @@
         getUserStatus('https://api-tedxvssut.herokuapp.com/users/status/', q_obj.get('user'))
             .then(data => {
                 console.log(data)
-                checkbtn.innerHTML = notLoading
                 if ('error' in data) {
                     error.innerHTML = data.message
                     error.classList.remove('d-none')
                 } else {
-                    uname.innerHTML = data.user.first_name + data.user.last_name
-                    upaymentid.innerHTML = data.user.payment_id
+                    uname.innerHTML += data.user.first_name + data.user.last_name
+                    upaymentid.innerHTML += data.user.payment_id
+                    uticketid.innerHTML += data.user.payment_reference_id
                     if (data.user.is_registered) {
                         icon_paid.classList.remove('d-none')
                         icon_fail.classList.add('d-none')
@@ -229,37 +237,9 @@
                     }
                     payment_status.classList.remove('d-none')
                     error.classList.add('d-none')
+                    spinner.classList.add('d-none')
                 }
             })
-
-        form.addEventListener('submit', (e) => {
-            checkbtn.innerHTML = loading
-            e.preventDefault()
-            console.log(form.payid.value)
-            const payment_id = form.payid.value
-            getUserStatus('https://api-tedxvssut.herokuapp.com/users/status/', payment_id)
-                .then(data => {
-                    console.log(data)
-                    checkbtn.innerHTML = notLoading
-                    if ('error' in data) {
-                        error.innerHTML = data.message
-                        error.classList.remove('d-none')
-                    } else {
-                        uname.innerHTML = data.user.first_name + data.user.last_name
-                        upaymentid.innerHTML = data.user.payment_id
-                        if (data.user.is_registered) {
-                            icon_paid.classList.remove('d-none')
-                            icon_fail.classList.add('d-none')
-                        } else {
-                            icon_paid.classList.add('d-none')
-                            icon_fail.classList.remove('d-none')
-                        }
-                        payment_status.classList.remove('d-none')
-                        error.classList.add('d-none')
-                    }
-                })
-
-        })
     </script>
 </body>
 
