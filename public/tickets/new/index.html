@@ -382,6 +382,7 @@
         })
         form.addEventListener('submit', (e) => {
             e.preventDefault();
+            return
             if (form.institute === 'Veer Surendra Sai University of Technology' && form.registration_no.value == null) {
                 alert('Please enter registration number')
                 return
