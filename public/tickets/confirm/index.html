@@ -213,7 +213,7 @@
         const notLoading = `Check`
 
         async function getUserStatus(url, payment_id) {
-            spinner.classList.add('d-none')
+            spinner.classList.remove('d-none')
             const response = await fetch(url + payment_id)
             return response.json()
         }
