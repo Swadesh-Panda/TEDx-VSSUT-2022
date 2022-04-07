@@ -149,7 +149,7 @@
                     <i class="fa-solid fa-circle-check d-none" id="icon-paid"></i>
                     <i class="fa-solid fa-circle-xmark d-none" id="icon-fail"></i>
                 </div>
-                <p class="text-light text-center my-3">Congratulations! you've booked your ticket.<br>Your ticket will be sent to you soon. Please be patient.</p>>
+                <p id="congo" class="text-light text-center my-3 d-none">Congratulations! you've booked your ticket.<br>Your ticket will be sent to you soon. Please be patient.</p>>
             </div>
             <div id="error" class="text-white text-center bg-danger rounded py-2 d-none"></div>
         </div>
@@ -201,6 +201,7 @@
         const icon_paid = document.querySelector('#icon-paid')
         const icon_fail = document.querySelector('#icon-fail')
         const spinner = document.querySelector('#payment-spinner')
+        const congo = document.querySelector('#congo')
 
 
         const query = window.location.search
@@ -232,9 +233,11 @@
                     if (data.user.is_registered) {
                         icon_paid.classList.remove('d-none')
                         icon_fail.classList.add('d-none')
+                        congo.classList.remove('d-none')
                     } else {
                         icon_paid.classList.add('d-none')
                         icon_fail.classList.remove('d-none')
+                        congo.classList.add('d-none')
                     }
                     payment_status.classList.remove('d-none')
                     error.classList.add('d-none')
