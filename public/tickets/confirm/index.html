@@ -227,7 +227,7 @@
                     error.classList.remove('d-none')
                     spinner.classList.add('d-none')
                 } else {
-                    uname.innerHTML += data.user.first_name + data.user.last_name
+                    uname.innerHTML += data.user.first_name + ' ' + data.user.last_name
                     upaymentid.innerHTML += data.user.payment_id
                     uticketid.innerHTML += data.user.payment_reference_id
                     if (data.user.is_registered) {
