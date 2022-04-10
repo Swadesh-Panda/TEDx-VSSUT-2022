@@ -23,6 +23,10 @@
         font-family: 'Roboto', sans-serif;
     }
     
+    body {
+        background: #000;
+    }
+    
     nav {
         position: sticky;
         top: 0;
@@ -46,7 +50,6 @@
     
     .form {
         display: flex;
-        min-height: 100vh;
         justify-content: center;
         align-items: center;
         flex-direction: column;
@@ -193,6 +196,26 @@
         </a>
 
     </nav>
+    <div class="d-flex flex-column align-items-center justify-content-center py-4">
+        <img src="../assets/images/ticket/ticket-01.png" alt="ticket" style="width: 300px">
+        <div class="d-flex justify-content-center align-items-center">
+            <div>
+                <h3>Rs. 599</h3>
+                <p>For VSSUT students</p>
+            </div>
+            <hr class="text-white mx-3" style="height: 100px; width: 2px; color: #fff;">
+            <div>
+                <h3>Rs. 649</h3>
+                <p>For non-VSSUT students</p>
+            </div>
+        </div>
+        <div>
+            <p>By continuing, you agree to our
+                <a href="../privacy.html">Privacy Policy</a> and
+                <a href="../terms.html">Terms and Conditions</a>
+            </p>
+        </div>
+    </div>
     <div class="form">
         <div id="loader-spinner" class="spinner-border text-light" role="status">
             <span class="sr-only">Loading...</span>
