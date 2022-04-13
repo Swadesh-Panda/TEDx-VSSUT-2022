@@ -3131,6 +3131,20 @@
     opacity: 0.2;
 }
 
+.speaker-item .item-thumb:hover .textsp {
+    opacity: 1
+}
+
+.textsp p {
+    color: #fff;
+}
+
+.speaker-item .item-content .name {
+    color: #fff;
+    font-weight: 600;
+    margin: 5px auto;
+}
+
 .speaker-item .item-thumb:hover .social-profile .icon.facebook {
     top: 28.5% !important;
     right: 50% !important;
@@ -3318,7 +3332,11 @@
 }
 
 .event-speaker.style-1 .speaker-event .speaker-wrapper .speaker-item {
-    width: calc(100% / 1);
+    width: calc(100% / 2);
+}
+
+.speaker-item-landscape {
+    width: 100%;
 }
 
 @media (min-width: 1200px) {
@@ -3336,8 +3354,9 @@
 }
 
 .event-speaker.style-1 .speaker-event .speaker-wrapper .speaker-item .speaker-item-inner .speaker-thumb img {
-    width: 100%;
+    height: 350px;
     display: block;
+    /* aspect-ratio: 1; */
 }
 
 .event-speaker.style-1 .speaker-event .speaker-wrapper .speaker-item .speaker-content .speaker-top {

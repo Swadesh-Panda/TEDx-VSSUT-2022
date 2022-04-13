@@ -23,6 +23,10 @@
         font-family: 'Roboto', sans-serif;
     }
     
+    body {
+        background: #000;
+    }
+    
     nav {
         position: sticky;
         top: 0;
@@ -46,7 +50,6 @@
     
     .form {
         display: flex;
-        min-height: 100vh;
         justify-content: center;
         align-items: center;
         flex-direction: column;
@@ -193,15 +196,40 @@
         </a>
 
     </nav>
+    <div class="d-flex flex-column align-items-center justify-content-center py-4">
+        <img src="../assets/images/ticket/ticket-01.png" alt="ticket" style="width: 300px">
+        <div class="d-flex justify-content-center align-items-center">
+            <div>
+                <h3>Rs. 599</h3>
+                <p>For VSSUT students</p>
+            </div>
+            <hr class="text-white mx-3" style="height: 100px; width: 2px; color: #fff;">
+            <div>
+                <h3>Rs. 649</h3>
+                <p>For non-VSSUT students</p>
+            </div>
+        </div>
+<p>We can't issue any refunds on your order</p>
+        <div>
+            <p>By continuing, you agree to our
+                <a href="../privacy.html">Privacy Policy</a> and
+                <a href="../terms.html">Terms and Conditions</a>
+            </p>
+        </div>
+    </div>
     <div class="form">
-        <div class="t-form d-flex flex-column">
+        <div id="loader-spinner" class="spinner-border text-light" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <div id="main-content" class="t-form d-flex flex-column d-none">
             <a href="./new/">
-                <button>New</button>
+                <button id="newbtn">New</button>
             </a>
             <a href="./status/">
                 <button>Have Ticket ID?</button>
             </a>
         </div>
+        <div class="message text-white"></div>
     </div>
     <!-- footer section start here -->
     <section class="footer-section ">
@@ -240,49 +268,29 @@
             history.back();
         })
 
-        const form = document.querySelector('form');
-        const vssut = document.querySelector('#clg1')
-        const otherclg = document.querySelector('#clg2')
+        const newbtn = document.querySelector('#newbtn')
+        const message = document.querySelector('.message')
+        const spinner = document.querySelector('#loader-spinner')
+        const mainContent = document.querySelector('#main-content')
 
-        const institute_field = document.querySelector('#institute')
-        const registration_no_field = document.querySelector('#registration_no')
-        institute_field.disabled = true;
-        registration_no_field.disabled = false;
-        institute_field.value = 'Veer Surendra Sai University of Technology'
-        vssut.addEventListener('change', () => {
-            if (vssut.checked) {
-                institute_field.value = 'Veer Surendra Sai University of Technology';
-                institute_field.disabled = true;
-                registration_no_field.disabled = false;
-            } else {
-                institute_field.disabled = false;
-                registration_no_field.disabled = true;
-            }
-        })
-
-        otherclg.addEventListener('change', () => {
-            if (otherclg.checked) {
-                institute_field.value = '';
-                institute_field.disabled = false;
-                registration_no_field.disabled = true;
-                registration_no_field.value = '';
-            } else {
-                institute_field.disabled = true;
-                registration_no_field.disabled = false;
-            }
-        })
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const user = {
-                first_name: form.first_name.value,
-                last_name: form.last_name.value,
-                phone_no: form.phone_no.value,
-                email: form.email.value,
-                institute: form.institute.value,
-                t_shirt_size: form.t_shirt_size.value,
-            }
-            console.log(user)
-        })
+        async function getTicketNumber() {
+            const response = await fetch('https://api-tedxvssut.herokuapp.com/tickets')
+            return response.json()
+        }
+        getTicketNumber()
+            .then(res => {
+                console.log(res.doc.seq)
+                if (res.doc.seq >= 150) {
+                    newbtn.disabled = true
+                    newbtn.addEventListener('click', () => alert('Sorry! we are sold out!'))
+                    message.innerHTML = 'Sorry! we are sold out!'
+                }
+                spinner.classList.add('d-none')
+                mainContent.classList.remove('d-none')
+            })
+            .catch(err => {
+                console.log('error')
+            })
     </script>
 
 </body>

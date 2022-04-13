@@ -94,6 +94,29 @@
                 display: flex;
             }
         }
+        
+        .speaker-item {
+            max-width: 300px;
+            overflow: hidden;
+            transition: all 300ms;
+        }
+        
+        .item-thumb {
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        
+        .item-thumb img {
+            transition: all 300ms;
+        }
+        
+        .footer-link {
+            color: #fff;
+        }
+        
+        .footer-link:hover {
+            color: #e62b1e;
+        }
     </style>
 </head>
 
@@ -170,7 +193,7 @@
                                     <li><a href="./team/">Team</a></li>
                                     <li><a href="#Contact">Contact Us</a></li>
                                 </ul>
-                                <a href="javascript:void" class="reg-head d-none d-xl-block">Coming Soon</a>
+                                <a href="./tickets/" class="reg-head d-none d-xl-block">Register</a>
                             </div>
                         </div>
                     </div>
@@ -226,7 +249,7 @@
                     <div class="conferench-bcl wow fadeInRight animated" data-wow-duration="1s" data-wow-delay=".2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s;">
                         <h3 class="text-light">Hurry up!</h3>
                         <p>The last date of registration is 16<sup>th</sup> April 2022. </p>
-                        <a href="javascript:void" class="btn-defult">Tickets Coming Soon</a>
+                        <a href="./tickets/" class="btn-defult">Get Ticket</a>
                     </div>
                 </div>
             </div>
@@ -239,7 +262,7 @@
 
 
     <!-- About section start here -->
-    <section class="achivement-section style-1">
+    <section id="About" class="achivement-section style-1">
         <div class="container container-1310">
             <div class="section-header"></div>
             <div class="section-wrapper">
@@ -284,7 +307,7 @@
 
 
     <!-- event section start here -->
-    <section id="About" class="event-section padding-tb">
+    <section class="event-section padding-tb">
         <div class="container">
             <div class="section-header">
                 <h2 class=" wow fadeInUp animated" data-wow-duration="1s" data-wow-delay=".1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s;">Event Info</h2>
@@ -364,7 +387,7 @@
                                 <img src="./assets/images/sponsor/fastech fashions.png" alt="sponsor">
                             </div>
                         </div>-->
-            
+
                         <div class="swiper-slide" style="width: 220.5px; margin-right: 30px;" data-swiper-slide-index="1">
                             <div class="sponsor-thumb">
                                 <img src="./assets/images/sponsor/raina.jpg" alt="sponsor">
@@ -377,12 +400,12 @@
                                 <b>Gifting Partner</b>
                             </div>
                         </div>
-                        <div class="swiper-slide swiper-slide-active" style="width: 220.5px; margin-right: 30px;" data-swiper-slide-index="3">
+                        <!-- <div class="swiper-slide swiper-slide-active" style="width: 220.5px; margin-right: 30px;" data-swiper-slide-index="3">
                             <div class="sponsor-thumb">
                                 <img src="./assets/images/sponsor/The-New-Indian-Express-CAREER.png" alt="sponsor">
                                 <b>Media Partner</b>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="swiper-slide swiper-slide-next" style="width: 220.5px; margin-right: 30px;" data-swiper-slide-index="4">
                             <div class="sponsor-thumb">
                                 <img src="./assets/images/sponsor/woody jones pizza.png" alt="sponsor">
@@ -399,6 +422,12 @@
                             <div class="sponsor-thumb">
                                 <img src="./assets/images/sponsor/ff.jpg" alt="sponsor">
                                 <b>Merchandise Partner</b>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-next" style="width: 220.5px; margin-right: 30px;" data-swiper-slide-index="4">
+                            <div class="sponsor-thumb">
+                                <img src="./assets/images/sponsor/codingninjas.jpeg" alt="sponsor">
+                                <b>Goodies Partner</b>
                             </div>
                         </div>
                         <!--<div class="swiper-slide" style="width: 220.5px; margin-right: 30px;" data-swiper-slide-index="5">
@@ -418,7 +447,7 @@
                         </div>-->
                     </div>
                     <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
-            </div> 
+            </div>
         </div>
     </div>
     <!--  sponsor section ending here -->
@@ -477,10 +506,10 @@
                     <p class="wow fadeInUp animated" data-wow-duration="1s" data-wow-delay=".3s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.3s;">The Successful People Attend &amp; Disclose Their Experience</p>
                 </div>
             </div>
-            <div class="text-center">
+            <!-- <div class="text-center">
                 Coming Soon!
-            </div>
-            <!-- <div class="section-wrapper d-flex flex-wrap justify-content-lg-center">
+            </div> -->
+            <div class="section-wrapper d-flex flex-wrap justify-content-lg-center">
                 <div class="speaker-item wow fadeInLeft animated" data-wow-duration="1s" data-wow-delay=".1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s;">
                     <div class="speaker-item-inner">
                         <div class="item-thumb">
@@ -489,7 +518,7 @@
                                 <p>World's Youngest Mountaineer</p>
                             </div>
                             <div class="item-overlay"></div>
-                            <div class="social-profile">
+                            <!-- <div class="social-profile">
                                 <div class="icon facebook">
                                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                                 </div>
@@ -502,19 +531,19 @@
                                 <div class="icon linkedin">
                                     <a href="#"><i class="fab fa-linkedin-in"></i></a>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="item-content">
                             <a href="#" class="name">Satyarup Siddhanta</a>
                         </div>
                     </div>
-                </div> -->
-            <!--<div class="popup">
+                </div>
+                <!--<div class="popup">
                     <div class="cardpr">
                         <img src="./source/tedsp/Dipti kala Web poster.png" class="imgsp">
                     </div>
                 </div>-->
-            <!-- <div class="speaker-item wow fadeInUp animated" data-wow-duration="1s" data-wow-delay=".2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s;">
+                <!-- <div class="speaker-item wow fadeInUp animated" data-wow-duration="1s" data-wow-delay=".2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s;">
                     <div class="speaker-item-inner">
                         <div class="item-thumb">
                             <img src="./source/tedsp/WEB SNT.png" alt="speaker image">
@@ -543,7 +572,7 @@
                     </div>
                 </div> -->
 
-            <!-- <div class="speaker-item wow fadeInUp animated" data-wow-duration="1s" data-wow-delay=".3s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.3s;">
+                <div class="speaker-item wow fadeInUp animated" data-wow-duration="1s" data-wow-delay=".3s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.3s;">
                     <div class="speaker-item-inner">
                         <div class="item-thumb">
                             <img src="./source/tedsp/WEB DK.png" alt="speaker image">
@@ -551,29 +580,28 @@
                                 <p>India's First Certified Dream Coach</p>
                             </div>
                             <div class="item-overlay"></div>
-                            <div class="social-profile">
-                                <div class="icon facebook">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                </div>
-                                <div class="icon twitter">
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                </div>
-                                <div class="icon insta">
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                </div>
-                                <div class="icon linkedin">
-                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                </div>
+                            <!-- <div class="social-profile">
+                            <div class="icon facebook">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
                             </div>
+                            <div class="icon twitter">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                            <div class="icon insta">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                            <div class="icon linkedin">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div> -->
                         </div>
                         <div class="item-content">
                             <a href="#" class="name">Deepti Kala</a>
-
                         </div>
                     </div>
-                </div> -->
+                </div>
 
-            <!-- <div class="speaker-item wow fadeInUp animated" data-wow-duration="1s" data-wow-delay=".4s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s;">
+                <div class="speaker-item wow fadeInUp animated" data-wow-duration="1s" data-wow-delay=".4s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s;">
                     <div class="speaker-item-inner">
                         <div class="item-thumb">
                             <img src="./source/tedsp/WEB AD.png" alt="speaker image">
@@ -581,7 +609,7 @@
                                 <p>Youtuber, Educator, Career Counsellor, Influencer</p>
                             </div>
                             <div class="item-overlay"></div>
-                            <div class="social-profile">
+                            <!-- <div class="social-profile">
                                 <div class="icon facebook">
                                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                                 </div>
@@ -594,16 +622,58 @@
                                 <div class="icon linkedin">
                                     <a href="#"><i class="fab fa-linkedin-in"></i></a>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="item-content">
                             <a href="#" class="name">Aman Dhattarwal</a>
 
                         </div>
                     </div>
-                </div> -->
+                </div>
+                <div class="speaker-item wow fadeInUp animated" data-wow-duration="1s" data-wow-delay=".4s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s;">
+                    <div class="speaker-item-inner">
+                        <div class="item-thumb">
+                            <img src="./source/tedsp/Babar Ali.png" alt="speaker image">
+                            <div class="textsp">
+                                <p>World's Youngest Headmaster</p>
+                            </div>
+                            <div class="item-overlay"></div>
+                        </div>
+                        <div class="item-content">
+                            <a href="#" class="name">Babar Ali</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="speaker-item wow fadeInUp animated" data-wow-duration="1s" data-wow-delay=".4s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s;">
+                    <div class="speaker-item-inner">
+                        <div class="item-thumb">
+                            <img src="./source/tedsp/amritrituraj.png" alt="speaker image">
+                            <div class="textsp">
+                                <p>IAS Officer, Collector & District Magistrate</p>
+                            </div>
+                            <div class="item-overlay"></div>
+                        </div>
+                        <div class="item-content">
+                            <a href="#" class="name">Amrit Rituraj</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="speaker-item wow fadeInUp animated" data-wow-duration="1s" data-wow-delay=".4s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s;">
+                    <div class="speaker-item-inner">
+                        <div class="item-thumb">
+                            <img src="./source/tedsp/lopamishrajena.png" alt="speaker image">
+                            <div class="textsp">
+                                <p>COO at Electropreneur Park & CoE at STPINEXT Entrepreneur</p>
+                            </div>
+                            <div class="item-overlay"></div>
+                        </div>
+                        <div class="item-content">
+                            <a href="#" class="name">Lopa Mishra Jena</a>
+                        </div>
+                    </div>
+                </div>
 
-            <!--<div class="speaker-item wow fadeInUp animated" data-wow-duration="1s" data-wow-delay=".5s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.5s;">
+                <!--<div class="speaker-item wow fadeInUp animated" data-wow-duration="1s" data-wow-delay=".5s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.5s;">
                     <div class="speaker-item-inner">
                         <div class="item-thumb">
                             <img src="./source/10.png" alt="speaker image">
@@ -710,7 +780,7 @@
                         </div>
                     </div>
                 </div>-->
-        </div>
+            </div>
         </div>
     </section>
     <!-- speaker section ending here -->
@@ -859,6 +929,8 @@
                         <p>Biju Pattnaik E-Learning Center, VSSUT, Burla<br>PIN-768018</p>
                         <h5>Contact No:</h5>
                         <span>(+91) 81440 64955</span>
+                        <h5>Email: </h5>
+                        <span>ecellvssut@gmail.com</span>
                     </div>
                 </div>
                 <div class="col-lg-8">
@@ -866,19 +938,19 @@
                         <div class="contact d-flex flex-wrap">
                             <div class="contact-item">
                                 <div class="contact-item-inner">
-                                    <input type="text" placeholder="Name" id="name" name="name" required="" class="wow fadeInLeft animated" data-wow-duration="1s" data-wow-delay=".1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s;">
-                                    <input type="email" placeholder="E-mail" id="email" name="email" required="" class="wow fadeInLeft animated" data-wow-duration="1s" data-wow-delay=".2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s;">
-                                    <input type="text" placeholder="Number" id="phone" name="phone" required="" class="wow fadeInLeft animated" data-wow-duration="1s" data-wow-delay=".3s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.3s;">
+                                    <input type="text" placeholder="Name" id="name" name="name" required class="wow fadeInLeft animated" data-wow-duration="1s" data-wow-delay=".1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s;">
+                                    <input type="email" placeholder="E-mail" id="email" name="email" required class="wow fadeInLeft animated" data-wow-duration="1s" data-wow-delay=".2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s;">
+                                    <input type="text" placeholder="Number" id="phone" name="phone" required class="wow fadeInLeft animated" data-wow-duration="1s" data-wow-delay=".3s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.3s;">
                                 </div>
                             </div>
                             <div class="contact-item wow fadeInDown animated" data-wow-duration="1s" data-wow-delay=".2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s;">
                                 <div class="contact-item-inner">
-                                    <textarea name="message" rows="8" id="message" placeholder="Your Message" required=""></textarea>
+                                    <textarea name="message" rows="8" id="message" placeholder="Your Message" required></textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="submit-btn wow fadeInUp animated" data-wow-duration="1s" data-wow-delay=".2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s;">
-                            <button class="" type="submit" value="Submit-Message" name="submit">Submit Messege</button>
+                            <button type="submit" name="submit" id="contact-form-btn">Submit Message</button>
                         </div>
                     </form>
                     <!-- <p class="form-message"></p> -->
@@ -899,6 +971,7 @@
                     <div class="d-flex flex-column">
                         <p style="color: white;">This independent <span style="color: #e62b1e;">TEDx</span> event is operated under license from <span style="color: #e62b1e;">TED</span>.</p>
                         <p style="color: white;"><span style="color: #e62b1e;">TEDxVSSUT</span> is hosted by <span><a style="color: #e62b1e; font-weight: 400;" href="https://ecellvssut.tech/">E-Cell VSSUT</a></span>.</p>
+
                     </div>
 
 
@@ -908,6 +981,12 @@
                             <li class="wow fadeInRight animated" data-wow-duration="1s" data-wow-delay=".4s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s;"><a href="https://www.linkedin.com/company/tedxvssut/?originalSubdomain=in"><i class="fab fa-linkedin-in"></i></a></li>
                             <li class="wow fadeInRight animated" data-wow-duration="1s" data-wow-delay=".3s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.3s;"><a href="https://www.instagram.com/tedxvssut/"><i class="fab fa-instagram"></i></a></li>
                         </ul>
+                        <div class="d-flex flex-column p-3">
+                            <a href="./tickets/" class="footer-link">Pricing</a>
+                            <a href="privacy.html" class="footer-link">Privacy Policy</a>
+                            <a href="terms.html" class="footer-link">Terms & Conditions</a>
+                            <a href="cancellation.html" class="footer-link">Refunds & Cancellation</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -916,7 +995,7 @@
     <!-- footer section ending here -->
 
 
-
+    <script type="module" src="js/contactForm.js"></script>
     <script src="./source/jquery.js.download"></script>
     <script src="./source/snap.svg-min.js.download"></script>
     <script src="./source/classie.js.download"></script>
@@ -936,10 +1015,10 @@
     <script src="./source/functions.js.download"></script>
     <script src="./source/wow.min.js.download"></script>
     <script src="./source/theia-sticky-sidebar.js.download"></script>
-    <script src="./source/mc-validate.js.download"></script>
+    <!-- <script src="./source/mc-validate.js.download"></script>
     <script src="./source/mail.js.download"></script>
     <script src="./source/mc-validate.js.download"></script>
-    <script src="./source/mail.js.download"></script>
+    <script src="./source/mail.js.download"></script> -->
 
     <script>
         $(window).scroll(function() {
@@ -949,7 +1028,6 @@
             });
         });
     </script>
-
 
 
 </body>
